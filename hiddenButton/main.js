@@ -1,14 +1,16 @@
-var winnerIndex = Math.floor(Math.random() * 3);
+let winnerIndex = Math.floor(Math.random() * 3);
 
-var buttons = document.querySelectorAll("button");
+let buttons = document.querySelectorAll("button");
+const lose = "red", win = "green";
 
 buttons.forEach(function(button, index) {
     button.addEventListener("click", function() {
-        var message = index === winnerIndex ? "Winner" : "Loser";
-        if (message === "Loser") {
-            document.getElementById("message").style.color = "red";
+        if (index === winnerIndex) {
+          var message = "Winner";
+          document.getElementById("message").style.color = win;
         } else {
-            document.getElementById("message").style.color = "green";
+          var message = "Loser";
+          document.getElementById("message").style.color = lose;
         }
         document.getElementById("message").textContent = message;
     });
